@@ -4,7 +4,7 @@
     "useSubdirectories": true
   },
   "basicHttpAuth": {
-    "password": "password"
+    "password": "motdepasse"
   },
   "useDeleteObjects": "false",
   "jwtAuth": {
@@ -22,3 +22,4 @@
     "bucket": "__DATA_DIR__/history/overleaf-zips"
   }
 }
+
