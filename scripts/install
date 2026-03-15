@@ -150,9 +150,6 @@ yunohost service add "$app-chat" --log="/var/log/$app/chat.log"
 ynh_config_add_systemd --service="$app-clsi" --template="overleaf-clsi.service"
 yunohost service add "$app-clsi" --log="/var/log/$app/clsi.log"
 
-ynh_config_add_systemd --service="$app-clsi-perf" --template="overleaf-clsi-perf.service"
-yunohost service add "$app-clsi-perf" --log="/var/log/$app/clsi-perf.log"
-
 ynh_config_add_systemd --service="$app-contacts" --template="overleaf-contacts.service"
 yunohost service add "$app-contacts" --log="/var/log/$app/contacts.log"
 
@@ -192,7 +189,6 @@ ynh_script_progression "Starting $app's systemd service..."
 
 ynh_systemctl --service="$app-chat" --action="start" --log_path="/var/log/$app/chat.log" --wait_until="Using settings from"
 ynh_systemctl --service="$app-clsi" --action="start" --log_path="/var/log/$app/clsi.log" --wait_until="Using settings from"
-ynh_systemctl --service="$app-clsi-perf" --action="start" --log_path="/var/log/$app/clsi-perf.log" --wait_until="Using settings from"
 ynh_systemctl --service="$app-contacts" --action="start" --log_path="/var/log/$app/contacts.log" --wait_until="Using settings from"
 ynh_systemctl --service="$app-docstore" --action="start" --log_path="/var/log/$app/docstore.log" --wait_until="Using settings from"
 ynh_systemctl --service="$app-document-updater" --action="start" --log_path="/var/log/$app/document-updater.log" --wait_until="Using settings from"
