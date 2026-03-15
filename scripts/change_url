@@ -16,6 +16,8 @@ ynh_systemctl --service="$app-chat" --action="stop"
 
 ynh_systemctl --service="$app-clsi" --action="stop"
 
+ynh_systemctl --service="$app-clsi-perf" --action="stop"
+
 ynh_systemctl --service="$app-contacts" --action="stop"
 
 ynh_systemctl --service="$app-docstore" --action="stop"
