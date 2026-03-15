@@ -72,7 +72,6 @@ ram.runtime = "3G"
 
     [resources.ports]
     main.default = 8095
-    clsi_host.default = 3013
     filestore.default = 3009
     v1_history.default = 3100
     clsi_perf.default = 3043
