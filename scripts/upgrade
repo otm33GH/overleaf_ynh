@@ -14,10 +14,6 @@ ynh_script_progression "Stopping $app's systemd service..."
 
 ynh_systemctl --service="$app-chat" --action="stop"
 
-if systemctl is-active --quiet "$app-clsi-perf" 2>/dev/null; then
-    ynh_systemctl --service="$app-clsi-perf" --action="stop"
-fi
-
 ynh_systemctl --service="$app-contacts" --action="stop"
 
 ynh_systemctl --service="$app-docstore" --action="stop"
@@ -170,9 +166,6 @@ yunohost service add "$app-chat" --log="/var/log/$app/chat.log"
 
 ynh_config_add_systemd --service="$app-clsi" --template="overleaf-clsi.service"
 yunohost service add "$app-clsi" --log="/var/log/$app/clsi.log"
-
-ynh_config_add_systemd --service="$app-clsi-perf" --template="overleaf-clsi-perf.service"
-yunohost service add "$app-clsi-perf" --log="/var/log/$app/clsi-perf.log"
 
 ynh_config_add_systemd --service="$app-contacts" --template="overleaf-contacts.service"
 yunohost service add "$app-contacts" --log="/var/log/$app/contacts.log"
