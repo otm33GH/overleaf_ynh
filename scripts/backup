@@ -32,7 +32,6 @@ ynh_backup "/etc/nginx/conf.d/$domain.d/"
 # Backup the systemd service unit
 ynh_backup "/etc/systemd/system/$app-chat.service"
 ynh_backup "/etc/systemd/system/$app-clsi.service"
-ynh_backup "/etc/systemd/system/$app-clsi-perf.service"
 ynh_backup "/etc/systemd/system/$app-contacts.service"
 ynh_backup "/etc/systemd/system/$app-docstore.service"
 ynh_backup "/etc/systemd/system/$app-document-updater.service"
