@@ -25,6 +25,11 @@ if ynh_hide_warnings yunohost service status "$app-clsi" >/dev/null; then
 fi
 ynh_config_remove_systemd "$app-clsi"
 
+if ynh_hide_warnings yunohost service status "$app-clsi-perf" >/dev/null; then
+    yunohost service remove "$app-clsi-perf"
+fi
+ynh_config_remove_systemd "$app-clsi-perf"
+
 if ynh_hide_warnings yunohost service status "$app-contacts" >/dev/null; then
     yunohost service remove "$app-contacts"
 fi
