@@ -16,8 +16,6 @@ ynh_systemctl --service="$app-chat" --action="stop"
 
 ynh_systemctl --service="$app-clsi" --action="stop"
 
-ynh_systemctl --service="$app-contacts" --action="stop"
-
 ynh_systemctl --service="$app-docstore" --action="stop"
 
 ynh_systemctl --service="$app-document-updater" --action="stop"
@@ -49,13 +47,12 @@ ynh_script_progression "Ensuring downward compatibility..."
 
 ynh_app_setting_set_default --key=jwt_key --value=$(ynh_string_random --length=45 | base64)
 
-if ynh_app_upgrading_from_version_before 2024.11.28~ynh1
+if ynh_app_upgrading_from_version_before 2026.05.29~ynh1
 then
-    if ynh_hide_warnings yunohost service status "$app-spelling" >/dev/null; then
-       yunohost service remove "$app-spelling"
+    if ynh_hide_warnings yunohost service status "$app-contacts" >/dev/null; then
+    yunohost service remove "$app-contacts"
     fi
-    ynh_config_remove_systemd "$app-spelling"
-    find "/var/log/$app/" -name "spelling.log*" -delete
+    ynh_config_remove_systemd "$app-contacts"
 fi
 
 #=================================================
@@ -161,9 +158,6 @@ yunohost service add "$app-chat" --log="/var/log/$app/chat.log"
 ynh_config_add_systemd --service="$app-clsi" --template="overleaf-clsi.service"
 yunohost service add "$app-clsi" --log="/var/log/$app/clsi.log"
 
-ynh_config_add_systemd --service="$app-contacts" --template="overleaf-contacts.service"
-yunohost service add "$app-contacts" --log="/var/log/$app/contacts.log"
-
 ynh_config_add_systemd --service="$app-docstore" --template="overleaf-docstore.service"
 yunohost service add "$app-docstore" --log="/var/log/$app/docstore.log"
 
@@ -200,7 +194,6 @@ ynh_script_progression "Starting $app's systemd service..."
 
 ynh_systemctl --service="$app-chat" --action="start" --log_path="/var/log/$app/chat.log" --wait_until="Using settings from"
 ynh_systemctl --service="$app-clsi" --action="start" --log_path="/var/log/$app/clsi.log" --wait_until="Using settings from"
-ynh_systemctl --service="$app-contacts" --action="start" --log_path="/var/log/$app/contacts.log" --wait_until="Using settings from"
 ynh_systemctl --service="$app-docstore" --action="start" --log_path="/var/log/$app/docstore.log" --wait_until="Using settings from"
 ynh_systemctl --service="$app-document-updater" --action="start" --log_path="/var/log/$app/document-updater.log" --wait_until="Using settings from"
 ynh_systemctl --service="$app-filestore" --action="start" --log_path="/var/log/$app/filestore.log" --wait_until="Using settings from"
