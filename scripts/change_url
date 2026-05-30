@@ -13,25 +13,14 @@ source /usr/share/yunohost/helpers
 ynh_script_progression "Stopping $app's systemd service..."
 
 ynh_systemctl --service="$app-chat" --action="stop"
-
 ynh_systemctl --service="$app-clsi" --action="stop"
-
-ynh_systemctl --service="$app-contacts" --action="stop"
-
 ynh_systemctl --service="$app-docstore" --action="stop"
-
 ynh_systemctl --service="$app-document-updater" --action="stop"
-
 ynh_systemctl --service="$app-filestore" --action="stop"
-
 ynh_systemctl --service="$app-history-v1" --action="stop"
-
 ynh_systemctl --service="$app-notifications" --action="stop"
-
 ynh_systemctl --service="$app-project-history" --action="stop"
-
 ynh_systemctl --service="$app-real-time" --action="stop"
-
 ynh_systemctl --service="$app-web" --action="stop"
 
 #=================================================
@@ -67,7 +56,6 @@ ynh_script_progression "Starting $app's systemd service..."
 
 ynh_systemctl --service="$app-chat" --action="start" --log_path="/var/log/$app/chat.log" --wait_until="Using settings from"
 ynh_systemctl --service="$app-clsi" --action="start" --log_path="/var/log/$app/clsi.log" --wait_until="Using settings from"
-ynh_systemctl --service="$app-contacts" --action="start" --log_path="/var/log/$app/contacts.log" --wait_until="Using settings from"
 ynh_systemctl --service="$app-docstore" --action="start" --log_path="/var/log/$app/docstore.log" --wait_until="Using settings from"
 ynh_systemctl --service="$app-document-updater" --action="start" --log_path="/var/log/$app/document-updater.log" --wait_until="Using settings from"
 ynh_systemctl --service="$app-filestore" --action="start" --log_path="/var/log/$app/filestore.log" --wait_until="Using settings from"
