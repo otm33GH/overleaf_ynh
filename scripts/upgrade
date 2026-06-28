@@ -47,6 +47,8 @@ ynh_script_progression "Ensuring downward compatibility..."
 
 ynh_app_setting_set_default --key=jwt_key --value=$(ynh_string_random --length=45 | base64)
 
+ynh_app_setting_set_default --key=invite_token --value=$(ynh_string_random --length=45 | base64)
+
 if ynh_app_upgrading_from_version_before 2026.05.29~ynh1
 then
     if ynh_hide_warnings yunohost service status "$app-contacts" >/dev/null; then
