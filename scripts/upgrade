@@ -125,6 +125,12 @@ then
     mv $data_dir/user_files $data_dir/old_user_files
 fi
 
+pushd "$install_dir"
+YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install
+cd tools/migrations
+export MONGO_CONNECTION_STRING="mongodb://127.0.0.1:27017/__DB_NAME__"
+yarn run migrations migrate -t server-ce
+popd
 
 #=================================================
 # CONFIGURE TEXLIVE
