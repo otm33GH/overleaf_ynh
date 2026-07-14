@@ -52,7 +52,7 @@ ram.runtime = "1G"
     [resources.sources]
     [resources.sources.main]
     url = "https://github.com/otm33GH/overleaf-builds/releases/download/20260626-28ad3b0/overleaf_20260626-28ad3b0.tar.gz"
-    sha256 = "935cd6c864dd05c5e8b8451ce0578b8ba2597c70a24ea3e12fe24ff5b3d65f1b"
+    sha256 = "02e0357adebc5e58f5cceba8c964bce7c2aafe3c55c427a1f7db404c38db7aff"
     
     autoupdate.upstream = "https://github.com/otm33GH/overleaf-builds"
     autoupdate.strategy = "latest_github_release"
