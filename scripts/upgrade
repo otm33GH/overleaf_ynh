@@ -130,7 +130,7 @@ pushd "$install_dir"
   ynh_hide_warnings corepack prepare  yarn@latest --activate
   ynh_hide_warnings ynh_exec_as_app YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install
   cd tools/migrations
-  export MONGO_CONNECTION_STRING="mongodb://127.0.0.1:27017/__DB_NAME__"
+  export MONGO_CONNECTION_STRING="mongodb://127.0.0.1:27017/$db_name"
   ynh_hide_warnings yarn run migrations migrate -t server-ce
 popd
 
