@@ -128,7 +128,7 @@ fi
 if ynh_app_upgrading_from_version_before 2026.06.26~ynh2
 then
     # add analyticsId field in db
- 	ynh_mongo_exec -d="$db_name" --user="$db_user" --password="$db_pwd" --command='db.users.updateMany({ analyticsId: { $exists: false } }, [{ $set: { analyticsId: { $toString: "$_id" } } }, ])'
+ 	ynh_mongo_exec -d="$db_name" --command='db.users.updateMany({ analyticsId: { $exists: false } }, [{ $set: { analyticsId: { $toString: "$_id" } } }, ])'
 fi
 
 #=================================================
